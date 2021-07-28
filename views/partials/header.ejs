@@ -1,0 +1,54 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Store</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body>
+	<header>
+		<nav id="nav">
+            
+			<div class="logo nav-common"><h1>KashmirFest</h1></div>
+			<ul class="nav-common">
+				<li><a href="/">home</a></li>
+				<li><a href="#products">products</a></li>
+				<li><a href="#blog">blog</a></li>
+                <li><a href="#collections">collections</a></li>
+				<li><a href="#contact">contact</a></li>
+                
+
+				<% if(isAuthenticated){ %>
+					<li><a href="/logout">LogOut</a></li>
+					<li><a href="/cart">cart</a></li>
+					<li><a href="/orders">orders</a></li>
+			    <%	}else{  %>
+					<li><a href="/login">Login</a></li>
+					<li><a href="/register">Singin</a></li>
+		     	<%} %>
+				
+                
+			</ul>
+			
+
+		</nav>
+		<div class="container" style="margin: auto; margin-top: 20px; width: 50%; text-align: center;">
+			<% if(msg && msg.length>0){ %>
+			 <div class="alert alert-success" role="alert">
+			   <%= msg %>
+			</div>
+			<% } %>
+				
+			 <% if(error && error.length>0){ %>
+			   <div class="alert alert-danger" role="alert">
+				 <%= error %>
+			  </div>
+			 <% } %>
+			
+			  
+			</div>

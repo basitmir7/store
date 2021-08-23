@@ -6,6 +6,7 @@
   padding: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -21,31 +22,41 @@ header nav {
   width: 100%;
   font-size: 0;
   vertical-align: middle;
-  height: 6.6rem;
-  line-height: 6.6rem;
+  height: 5.5rem;
+
   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 1.6px 3px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-wrap: wrap;
 }
 
 header nav .nav-common {
-  display: inline-block;
+  display: flex;
 }
 
 header nav .logo {
-  width: 20%;
+  width: 17%;
   text-align: center;
   font-size: 16px;
+  height: 53%;
+  margin-top: 1.6%;
+  margin-left: 2%;
 }
 .nav-common h1 {
   font-size: 27px;
   color: #ce0095;
+  font-family: Cambria;
+  font-weight: bold;
 }
 
 header nav ul {
-  width: 80%;
+  width: 77%;
   list-style: none;
   /*  font-size: 0;*/
-  font-size: 16px;
+  font-size: 15px;
+  height: 73%;
+  margin-top: 2.19%;
+  flex-wrap: wrap;
 }
 
 header nav ul li {
@@ -57,7 +68,7 @@ header nav ul li {
 header nav ul li a {
   text-transform: uppercase;
   color: rgb(89, 89, 89);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   text-decoration: none;
 }
@@ -81,21 +92,24 @@ header nav .nav-icon {
 
 @media only screen and (max-width: 768px) {
   header nav {
-    height: 5rem;
-    line-height: 5rem;
+    height: 6.5rem;
   }
   header nav .logo {
     width: 45%;
+    height: 40%;
   }
   header nav .nav-icon img {
     margin-top: 1.4rem;
   }
   header nav ul {
-    width: 20%;
-    display: none;
+    width: 100%;
+
+    display: flex;
+    height: 40%;
+    flex-wrap: wrap;
   }
   header nav ul li {
-    display: none;
+    width: 12%;
   }
   header nav .cart {
     width: 15%;
@@ -106,6 +120,21 @@ header nav .nav-icon {
   }
 }
 
+@media only screen and (max-width: 483px) {
+  header nav {
+    height: 12rem;
+    line-height: 5rem;
+  }
+  header nav ul {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  header nav .logo {
+    height: 26%;
+  }
+}
+
+/* main css */
 #header-hero {
   width: 100%;
   display: block;

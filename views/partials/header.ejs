@@ -22,15 +22,16 @@
         <div class="logo nav-common"><h1>KASHMIRFRESH</h1></div>
         <ul class="nav-common">
           <li><a href="/">home</a></li>
-          <li><a href="#products">products</a></li>
+          <li><a href="/views/shop/products.ejs">products</a></li>
           <li><a href="#blog">blog</a></li>
           <li><a href="#collections" style="width: 10%">collections</a></li>
           <li><a href="#contact">contact</a></li>
 
           <% if(isAuthenticated){ %>
           <li><a href="/logout">LogOut</a></li>
+          <li><a href="/admin/addProducts">Addproduct</a></li>
           <li><a href="/cart">cart</a></li>
-          <li><a href="/orders">orders</a></li>
+          <!-- <li><a href="/orders">orders</a></li> -->
           <% }else{ %>
           <li><a href="/login">Login</a></li>
           <li><a href="/register">Singin</a></li>

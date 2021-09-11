@@ -1,0 +1,25 @@
+<%- include("../partials/header") %>
+<div class="container">
+  <div class="row">
+    <% products.forEach((product)=>{ %>
+    <div class="col col-lg-3" style="margin-left: 10px">
+      <div class="card" style="width: 18rem">
+        <img
+          class="card-img-top"
+          src="/uploads/<%=product.file%>"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title"><%=product.title%></h5>
+          <p class="card-text"><%=product.description%></p>
+          <h3><%=product.price%>$</h3>
+          <a href="/productDetail/<%=product._id%>" class="btn btn-primary"
+            >More Info!</a
+          >
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>
+<%- include("../partials/footer") %>

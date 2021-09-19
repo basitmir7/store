@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Store</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="/public/css/style.css">
+	<link rel="stylesheet" href="/css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	
@@ -56,14 +56,17 @@
 			</div>
 <div class="container">
     <div class="card mb-3">
-        <img class="card-img-top" src="/uploads/<%=product.file%>" alt="Card image cap">
+        <img class="card-img-top" src="/uploads/<%=product.image%>" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title"><%=product.title%></h5>
           <p class="card-text"><%=product.description%></p>
           <% if(isAuthenticated){ %>
-          <a href="" class="btn btn-primary">ADD To cart</a>
-          <a href="" class="btn btn-sm btn-warning">edit</a>
-          <a href="" class="btn btn-sm btn-danger">delete</a>
+			<form action="/cart" method="post" style="text-align: center;">
+				<input type="hidden" name="productId" value="<%=product._id%>">
+              <button class="btn btn-success" type="submit">Add To Cart</button>
+		   </form>
+          <a href="/admin/editProduct/<%=product._id%>" class="btn btn-sm btn-warning">edit</a>
+          <a href="/admin/deleteProduct/<%=product._id%>" class="btn btn-sm btn-danger">delete</a>
           <%}%>
         </div>
       </div>
@@ -87,3 +90,4 @@
 </body>
 
 </html>
+

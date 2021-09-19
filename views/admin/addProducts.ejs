@@ -1,92 +1,122 @@
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
 
-<head>
-	<meta charset="UTF-8">
-	<title>Store</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="/css/style.css">
-	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	
-</head>
+  <body>
+    <header>
+      <nav id="nav">
+        <div class="logo nav-common"><h1>KASHMIRFRESH</h1></div>
+        <ul class="nav-common">
+          <li><a href="/">home</a></li>
+          <li><a href="/allProducts">products</a></li>
+          <li><a href="#blog">blog</a></li>
+          <li><a href="#collections">collections</a></li>
+          <li><a href="#contact">contact</a></li>
 
-<body>
-	<header>
-		<nav id="nav">
-            
-			<div class="logo nav-common"><h1>KashmirFest</h1></div>
-			<ul class="nav-common">
-				<li><a href="/">home</a></li>
-				<li><a href="/allProducts">products</a></li>
-				<li><a href="#blog">blog</a></li>
-                <li><a href="#collections">collections</a></li>
-				<li><a href="#contact">contact</a></li>
-                
+          <% if(isAuthenticated){ %>
 
-				<% if(isAuthenticated){ %>
-					
-					<li><a href="/cart">cart</a></li>
-					<!-- <li><a href="/orders">orders</a></li> -->
-					<li><a href="/admin/addProducts">Addproduct</a></li>
-					<li><a href="/logout">LogOut</a></li>
-			    <%	}else{  %>
-					<li><a href="/login">Login</a></li>
-					<li><a href="/register">Singin</a></li>
-		     	<%} %>
-				
-                
-			</ul>
-			
-
-		</nav>
-		<div class="container" style="margin: auto; margin-top: 20px; width: 50%; text-align: center;">
-			<% if(msg && msg.length>0){ %>
-			 <div class="alert alert-success" role="alert">
-			   <%= msg %>
-			</div>
-			<% } %>
-				
-			 <% if(error && error.length>0){ %>
-			   <div class="alert alert-danger" role="alert">
-				 <%= error %>
-			  </div>
-			 <% } %>
-			
-			  
-			</div>
-<section class="py-5 section-1">
-    <div class="container py-5 text-center">
-        <div class="row">
+          <li><a href="/cart">cart</a></li>
+          <!-- <li><a href="/orders">orders</a></li> -->
+          <li><a href="/admin/addProducts">AddProduct</a></li>
+          <li><a href="/logout">LogOut</a></li>
+          <% }else{ %>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Singin</a></li>
+          <%} %>
+        </ul>
+      </nav>
+      <div
+        class="container"
+        style="margin: auto; margin-top: 20px; width: 50%; text-align: center"
+      >
+        <% if(msg && msg.length>0){ %>
+        <div class="alert alert-success" role="alert"><%= msg %></div>
+        <% } %> <% if(error && error.length>0){ %>
+        <div class="alert alert-danger" role="alert"><%= error %></div>
+        <% } %>
+      </div>
+      <section class="py-5 section-1">
+        <div class="container py-5 text-center">
+          <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h2>ADD Products</h2>
+              <h2>ADD Products</h2>
 
- <form action="/admin/addProducts" method="post" role="form" enctype="multipart/form-data">
-    <div class="form-group">
-    <input class="form-control" type="text" value="<%=product.title%>" name="title" placeholder="Title" id="" >
-</div>
+              <form
+                action="/admin/addProducts"
+                method="post"
+                role="form"
+                enctype="multipart/form-data"
+              >
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    type="text"
+                    value="<%=product.title%>"
+                    name="title"
+                    placeholder="Title"
+                    id=""
+                  />
+                </div>
 
-<div class="form-group">
-    <textarea name="description" id="" class="form-control" cols="30" rows="4" placeholder="Description" ><%=product.description%></textarea>
-</div>
-<div class="form-group">
-    <input type="file" name="file" value="<%=product.image%>" class="form-control" id="" >
-</div>
-<div class="form-group">
-    <input class="form-control" type="text" value="<%=product.price%>"  name="price" placeholder="Price" id="" >
-</div>
-<div class="form-group">
-    <button class="btn btn-primary btn-block" type="submit">Submit!</button>
-</div>
-<input type="hidden" name="hid" value="<%=product._id%>">
-   </form>
-   </div>
+                <div class="form-group">
+                  <textarea
+                    name="description"
+                    id=""
+                    class="form-control"
+                    cols="30"
+                    rows="4"
+                    placeholder="Description"
+                  >
+<%=product.description%></textarea
+                  >
+                </div>
+                <div class="form-group">
+                  <input
+                    type="file"
+                    name="file"
+                    value="<%=product.image%>"
+                    class="form-control"
+                    id=""
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    type="text"
+                    value="<%=product.price%>"
+                    name="price"
+                    placeholder="Price"
+                    id=""
+                  />
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-primary btn-block" type="submit">
+                    Submit!
+                  </button>
+                </div>
+                <input type="hidden" name="hid" value="<%=product._id%>" />
+              </form>
+            </div>
+          </div>
         </div>
-    </div>
-</section>
+      </section>
 
-
-
-   <%- include("../partials/collection") %>
-
-   <%- include("../partials/footer") %>
-
+      <%- include("../partials/collection") %> <%- include("../partials/footer")
+      %>
+    </header>
+  </body>
+</html>

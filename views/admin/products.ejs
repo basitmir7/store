@@ -1,4 +1,4 @@
-<html lang="en">
+<!-- <html lang="en">
 
 <head>
 	<meta charset="UTF-8">
@@ -18,15 +18,15 @@
 			<ul class="nav-common">
 				<li><a href="/">home</a></li>
 				<li><a href="/allProducts">products</a></li>
-				<!-- <li><a href="#blog">blog</a></li>
-                <li><a href="#collections">collections</a></li> -->
+				 <li><a href="#blog">blog</a></li>
+                <li><a href="#collections">collections</a></li> 
 				<li><a href="#contact">contact</a></li>
                 
 
 				<% if(isAuthenticated){ %>
 					
 					<li><a href="/cart">cart</a></li>
-					<!-- <li><a href="/orders">orders</a></li> -->
+					 <li><a href="/orders">orders</a></li> 
 					<li><a href="/admin/addProducts">Addproduct</a></li>
 					<li><a href="/admin/products">Adminpro</a></li>
 					<li><a href="/profile">Profile</a></li>
@@ -55,27 +55,40 @@
 			 <% } %>
 			
 			  
-			</div>
+			</div>-->
+<link rel="stylesheet" href="/css/style.css" />
+<%- include("../partials/header.ejs") %>
+
 <div class="container">
-<div class="row">
-   <% if(products.length>0){ %>
-    <%	products.forEach((product)=>{ %>
-        <div class="col col-lg-3" style="margin-left: 10px;">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="/uploads/<%=product.image%>" alt="Card image cap">
-                <div class="card-body">
-                   <h5 class="card-title"><%=product.title%></h5>
-                   <p class="card-text"><%=product.description%></p>
-                   <h3><%=product.price%>$</h3>
-                   <a href="/admin/editProduct/<%=product._id%>" class="btn btn-sm btn-warning">edit</a>
-                   <a href="/admin/deleteProduct/<%=product._id%>" class="btn btn-sm btn-danger">delete</a>
-                </div>
-            </div>
+  <div class="row">
+    <% if(products.length>0){ %> <% products.forEach((product)=>{ %>
+    <div class="col col-lg-3" style="margin-left: 10px">
+      <div class="card" style="width: 18rem">
+        <img
+          class="card-img-top"
+          src="/uploads/<%=product.image%>"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title"><%=product.title%></h5>
+          <p class="card-text"><%=product.description%></p>
+          <h3><%=product.price%>$</h3>
+          <a
+            href="/admin/editProduct/<%=product._id%>"
+            class="btn btn-sm btn-warning"
+            >edit</a
+          >
+          <a
+            href="/admin/deleteProduct/<%=product._id%>"
+            class="btn btn-sm btn-danger"
+            >delete</a
+          >
         </div>
-        <%	}) %>
- <%   }else{ %>
-        <h1>No products</h1>
-  <%  } %>
+      </div>
     </div>
+    <% }) %> <% }else{ %>
+    <h1>No products</h1>
+    <% } %>
+  </div>
 </div>
 <%- include("../partials/footer") %>

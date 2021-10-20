@@ -1,24 +1,29 @@
-<%- include("../partials/header") %>
+<%- include("../partials/header.ejs") %>
+<link rel="stylesheet" href="/css/style.css" />
 <div class="container">
-<div class="row">
-    <%	products.forEach((product)=>{ %>
-        <div class="col col-lg-3" style="margin-left: 10px;">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="/uploads/<%=product.image%>" alt="Card image cap">
-                <div class="card-body">
-                   <h5 class="card-title"><%=product.title%></h5>
-                   <p class="card-text"><%=product.description%></p>
-                   <h3><%=product.price%>$</h3>
-                  <a href="/productDetail/<%=product._id%>" class="btn btn-primary">More Info!</a>
-                  <h6 style="margin-top: 10px;">
-                     <% if(product.userId.name){ %>
-                          <%=product.userId.name%>
-                    <%  }%>
-                  </h6>
-                </div>
-            </div>
+  <div class="row">
+    <% products.forEach((product)=>{ %>
+    <div class="col col-lg-3" style="margin-left: 10px">
+      <div class="card" style="width: 18rem">
+        <img
+          class="card-img-top"
+          src="/uploads/<%=product.image%>"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title"><%=product.title%></h5>
+          <p class="card-text"><%=product.description%></p>
+          <h3><%=product.price%>$</h3>
+          <a href="/productDetail/<%=product._id%>" class="btn btn-primary"
+            >move to cart</a
+          >
+          <h6 style="margin-top: 10px">
+            By: <% if(product.userId.name){ %> <%=product.userId.name%> <% }%>
+          </h6>
         </div>
-        <%	}) %>
+      </div>
     </div>
+    <% }) %>
+  </div>
 </div>
 <%- include("../partials/footer") %>

@@ -1,4 +1,4 @@
-<html lang="en">
+<!-- <html lang="en">
 
 <head>
 	<meta charset="UTF-8">
@@ -24,7 +24,7 @@
 				<% if(isAuthenticated){ %>
 					
 					<li><a href="/cart">cart</a></li>
-					<!-- <li><a href="/orders">orders</a></li> -->
+				 <li><a href="/orders">orders</a></li> 
 					<li><a href="/admin/addProducts">Addproduct</a></li>
 					<li><a href="/profile">Profile</a></li>
 					<li><a href="/logout">LogOut</a></li>
@@ -52,25 +52,35 @@
 			 <% } %>
 			
 			  
-			</div>
+			</div> -->
+
+<%- include("../partials/header.ejs") %>
+<link rel="stylesheet" href="/css/style.css" />
+
 <div class="container">
-    <div class="card mb-3">
-        <img class="card-img-top" src="/uploads/<%=product.image%>" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title"><%=product.title%></h5>
-          <p class="card-text"><%=product.description%></p>
-          <% if(isAuthenticated){ %>
-			<form action="/cart" method="post" style="text-align: center;">
-				<input type="hidden" name="productId" value="<%=product._id%>">
-              <button class="btn btn-success" type="submit">Add To Cart</button>
-		   </form>
-        
-          <%}%>
-        </div>
-      </div>
+  <div class="card mb-3">
+    <img
+      class="card-img-top"
+      src="/uploads/<%=product.image%>"
+      alt="Card image cap"
+    />
+    <div class="card-body">
+      <h5 class="card-title"><%=product.title%></h5>
+      <p class="card-text"><%=product.description%></p>
+      <% if(isAuthenticated){ %>
+      <form action="/cart" method="post" style="text-align: center">
+        <input type="hidden" name="productId" value="<%=product._id%>" />
+        <button class="btn btn-success" type="submit">Add To Cart</button>
+      </form>
+
+      <%}%>
+    </div>
+  </div>
 </div>
 
-<section id="contact">
+<%- include("../partials/footer") %>
+
+<!-- <section id="contact">
     <div class="container">
         <h4>cantact us</h4>
         <p>451 awenve 5th street new york city</p>
@@ -87,5 +97,4 @@
 <div class="back-to-top"><a href="#nav"> <img title="Back to Top." src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412541/E-commerce%20landing%20page/icons/back_-_top_1x.png" alt="back to top"></a> </div>
 </body>
 
-</html>
-
+</html> -->

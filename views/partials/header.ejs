@@ -1,58 +1,212 @@
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&display=swap"
+    />
 
-<head>
-	<meta charset="UTF-8">
-	<title>Store</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.css">
-	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	
-</head>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+  </head>
+  <script>
+    function openSidebar() {
+      var sideBar = document.getElementById("sidebar");
+      // sideBar.style.display = "flex";
+      sideBar.style.left = "0";
+    }
 
-<body>
-	<header>
-		<nav id="nav">
-            
-			<div class="logo nav-common"><h1>KashmirFest</h1></div>
-			<ul class="nav-common">
-				<li><a href="/">home</a></li>
-				<li><a href="/allProducts">products</a></li>
-				<!-- <li><a href="#blog">blog</a></li> -->
-                <!-- <li><a href="#collections">collections</a></li> -->
-				<li><a href="/seller">Seller</a></li>
-                
+    function closeSidebar() {
+      var sideBar = document.getElementById("sidebar");
+      // sideBar.style.display = "none";
 
-				<% if(isAuthenticated){ %>
-					
-					<li><a href="/cart">cart</a></li>
-					<li><a href="/orders">orders</a></li>
-					<li><a href="/admin/addProducts">Addproduct</a></li>
-					<li><a href="/admin/products">Adminpro</a></li>
-					<li><a href="/logout">LogOut</a></li>
-					<li><a href="/profile">Profile</a></li>
-			    <%	}else{  %>
-					<li><a href="/login">Login</a></li>
-					<li><a href="/register">Singin</a></li>
-		     	<%} %>
-				
-                
-			</ul>
-			
+      sideBar.style.left = "-32%";
+    }
+  </script>
+  <style>
+    .logo i {
+      font-size: 33px;
+      margin-right: 9%;
+      color: rgb(156, 17, 82);
+      cursor: pointer;
+    }
 
-		</nav>
-		<div class="container" style="margin: auto; margin-top: 20px; width: 50%; text-align: center;">
-			<% if(msg && msg.length>0){ %>
-			 <div class="alert alert-success" role="alert">
-			   <%= msg %>
-			</div>
-			<% } %>
-				
-			 <% if(error && error.length>0){ %>
-			   <div class="alert alert-danger" role="alert">
-				 <%= error %>
-			  </div>
-			 <% } %>
-			
-			  
-			</div>
+    .Sidebar {
+      display: flex;
+      overflow: hidden;
+      flex-direction: column;
+      width: 27%;
+      background-color: #fffffffa;
+      height: 100%;
+      left: -32%;
+      z-index: 6;
+      position: absolute;
+      top: 0%;
+      transition: 450ms;
+      box-shadow: 0 5px 10px rgba(154, 160, 185, 0.08),
+        0 15px 40px rgba(166, 173, 201, 0.4);
+
+      border-right: 2px solid rgba(185, 185, 185, 0.726);
+    }
+    .sidebar-list {
+      list-style-type: none;
+
+      text-transform: uppercase;
+    }
+    .sidebar-list li {
+      height: 31%;
+      font-size: 20.5px;
+      margin-left: 6%;
+      color: rgb(20, 20, 20);
+      cursor: pointer;
+    }
+
+    .sidebar-list li i {
+      margin-right: 8%;
+      font-size: 23px;
+      margin-top: 1%;
+    }
+    .sidebar-list li a {
+      color: rgb(37, 37, 37);
+      text-decoration: none;
+    }
+    .sidebar-header {
+      height: 15%;
+      display: flex;
+      justify-content: space-between;
+    }
+    .sidebar-header i {
+      font-size: 45px;
+      margin-top: 4%;
+      margin-right: 7%;
+      cursor: pointer;
+    }
+
+    .sidebar-header h1 {
+      font-size: 27px;
+      color: #ce0095;
+      font-family: Cambria;
+      font-weight: bold;
+      margin-top: 6%;
+      margin-left: 18%;
+    }
+
+    .sidebar-list li:hover {
+      background: rgba(223, 223, 223, 0.877);
+      transition: ease-in-out 150ms;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .sidebar {
+        width: 53%;
+        left: -58%;
+      }
+    }
+    @media only screen and (max-width: 335px) {
+      .sidebar {
+        left: -96%;
+        width: 89%;
+      }
+    }
+  </style>
+
+  <body>
+    <header style="top: 0; position: sticky; z-index: 5">
+      <nav id="nav">
+        <div class="logo nav-common">
+          <i class="fas fa-bars" id="sidebar-open" onclick="openSidebar()"></i>
+          <h1>KASHMIRFRESH</h1>
+        </div>
+        <ul class="nav-common">
+          <li><a href="/">home</a></li>
+          <li><a href="/allProducts">products</a></li>
+          <li><a href="#blog">blog</a></li>
+          <li><a href="#collections">collections</a></li>
+          <li><a href="/seller">Sellers</a></li>
+
+          <!-- <% if(isAuthenticated){ %>
+
+          <li><a href="/cart">cart</a></li>
+          <li><a href="/orders">orders</a></li>
+          <li><a href="/admin/addProducts">Addproduct</a></li>
+          <li><a href="/admin/products">Adminpro</a></li>
+          <li><a href="/logout">LogOut</a></li>
+          <li><a href="/profile">Profile</a></li>
+          <% }else{ %>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Singin</a></li>
+          <%} %> -->
+
+          <% if(!isAuthenticated){ %>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Singin</a></li>
+          <%} %>
+        </ul>
+      </nav>
+      <div
+        class="container"
+        style="margin: auto; margin-top: 20px; width: 50%; text-align: center"
+      >
+        <% if(msg && msg.length>0){ %>
+        <div class="alert alert-success" role="alert"><%= msg %></div>
+        <% } %> <% if(error && error.length>0){ %>
+        <div class="alert alert-danger" role="alert"><%= error %></div>
+        <% } %>
+      </div>
+    </header>
+    <!-- sidebar  -->
+    <div class="Sidebar" id="sidebar" style="top: 0; position: fixed">
+      <div class="sidebar-header">
+        <h1>MENU</h1>
+
+        <i
+          class="fas fa-arrow-circle-left"
+          id="sidebar-close"
+          onclick="closeSidebar()"
+        ></i>
+      </div>
+
+      <ul class="sidebar-list">
+        <li><i class="fas fa-home"></i><a href="/">home</a></li>
+        <% if(isAuthenticated){ %>
+        <li><i class="fas fa-user"></i><a href="/profile">Profile</a></li>
+        <li><i class="fas fa-shopping-cart"></i><a href="/cart">cart</a></li>
+        <li><i class="fas fa-history"></i><a href="/orders">orders</a></li>
+        <li>
+          <i class="far fa-plus-square"></i
+          ><a href="/admin/addProducts">Add product</a>
+        </li>
+        <li>
+          <i class="fas fa-paste"></i><a href="/admin/products">My products</a>
+        </li>
+
+        <li><i class="fas fa-sign-out-alt"></i><a href="/logout">LogOut</a></li>
+        <% }else{ %>
+        <li><i class="fas fa-share"></i><a href="/login">Login</a></li>
+        <li>
+          <i class="fas fa-sign-in-alt"></i><a href="/register">Singin</a>
+        </li>
+        <%} %>
+      </ul>
+    </div>
+
+    <!-- sidebar ends -->
+  </body>
+</html>

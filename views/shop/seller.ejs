@@ -1,33 +1,28 @@
-<%- include("../partials/header") %>
-<div class="container" style="height: 100%;">
-    <table class="table">
-        <thead class="table table-dark">
-            <th>Sno</th>
-            <th>Name</th>
-            <th>Deals In</th>
-            <th>Address</th>
-            <th>Contact</th>
-        </thead>
-        <tbody> 
-           <% if(sellers.length>0){ %>
-           <% sellers.forEach((seller)=>{ %>
-            <tr>
-                <th><%=x%></th>
-                <td><%=seller.name%></td>
-                <td><%=seller.deals%></td>
-                <td><%=seller.address%></td>
-                <td><%=seller.contact%></td>
-            </tr>
-            <%x++;%>
-           <% }) %>
-      <%  }else{ %>
-            <h1>No Seller Found!</h1>
-      <%  } %>
-        </tbody>
-    </table>
-
+<%- include("../partials/header.ejs") %>
+<!-- <link rel="stylesheet" href="/css/style.css" /> -->
+<div class="container" style="height: 100%">
+  <table class="table">
+    <thead class="table table-dark">
+      <th>S.no</th>
+      <th>Name</th>
+      <th>Deals In</th>
+      <th>Address</th>
+      <th>Contact</th>
+    </thead>
+    <tbody>
+      <% if(sellers.length>0){ %> <% sellers.forEach((seller)=>{ %>
+      <tr>
+        <th><%=x%></th>
+        <td><%=seller.name%></td>
+        <td><%=seller.deals%></td>
+        <td><%=seller.address%></td>
+        <td><%=seller.contact%></td>
+      </tr>
+      <%x++;%> <% }) %> <% }else{ %>
+      <h1>No Seller Found!</h1>
+      <% } %>
+    </tbody>
+  </table>
 </div>
-
-
 
 <%- include("../partials/footer") %>

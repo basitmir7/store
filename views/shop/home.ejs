@@ -4,11 +4,11 @@
 		<div id="header-hero">
 			<div class="header-bg"> <img src="https://images.unsplash.com/photo-1582295528555-0997810211e6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" /> </div>
 			<div class="header-content">
-				<p class="heading-1">fashion collection 2017</p>
-				<h1>wellcome to Kashmir<span class="logo-style">Fest</span> unique store</h1>
-				<p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+				<p class="heading-1">horticulture products</p>
+				<h1>welcome to Kashmir<span class="logo-style">Fresh</span> Marketplace</h1>
+				<p class="description"> This marketplace deals with the horticulture insdustries and products. we ensure the best possible experience and products. We help to grow your business.</p>
 				<div class="button">
-					<p>shop now</p>
+					<p>explore</p>
 				</div>
 			</div>
 		</div>
@@ -16,12 +16,11 @@
 	<section id="summer-collection">
 		<div class="container">
 			<div class="sc-content">
-				<h1>summer collection</h1>
-				<p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It
-					has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+				<h1>fresh and finest quality</h1>
+				<p class="description">Proving best platform for sellers and buyers for horticulture based products and plant nurseries in kashmir .</p>
 				<a href="#">discover now</a> </div>
 			<div class="sc-media">
-				<div class="sc-media-bg"> <img src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412556/E-commerce%20landing%20page/summer-collection/cold-fashion-man-women_3x.jpg" alt="sc-image" /> </div>
+				<div class="sc-media-bg"> <img src="https://images.unsplash.com/photo-1550989460-0adf9ea622e2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1868&q=80" alt="sc-image" /> </div>
 			</div>
 		</div>
 	</section>
@@ -32,6 +31,10 @@
 				<h2>popular products</h2>
 				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 			</div> -->
+			<div class="products-header">
+				<h2>popular products</h2>
+				
+			</div>
 			<div class="row">
 			<%	products.forEach((product)=>{ %>
 			    <div class="col col-lg-3">
@@ -41,7 +44,7 @@
 						   <h5 class="card-title"><%=product.title%></h5>
 						   <p class="card-text"><%=product.description%></p>
 						   <h3><%=product.price%>$</h3>
-						  <a href="#" class="btn btn-primary">Go somewhere</a>
+						  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
 						  <h6 style="margin-top: 10px;">
 							<% if(product.userId.name){ %>
 								 <%=product.userId.name%>
@@ -65,33 +68,33 @@
 		<div class="container">
 			<div class="blog-header">
 				<h2>latest from blog</h2>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+				<p></p>
 			</div>
 			<div class="blog-content">
 				<div class="blog-1">
-					<div class="blog-1-image-holder"> <img src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412548/E-commerce%20landing%20page/blog/blog-2-img_3x.jpg" alt="image"> </div>
+					<div class="blog-1-image-holder"> <img src="https://images.unsplash.com/photo-1508857650881-64475119d798?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="image"> </div>
 					<div class="blog-1-content">
-						<h4>Lorem Ipsum</h4>
+						<h4>view</h4>
 						<h3>Lorem ipsum dolor sit amet.</h3>
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+						<p class="description">Horticulture is the most vibrant sector of the economy of Jammu and Kashmir State which constitutes about 45% of the share which agriculture sector contributes to GSDP</p>
 						<p class="button">view post</p>
 					</div>
 				</div>
 				<div class="blog-2">
-					<div class="blog-2-image-holder"> <img src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412543/E-commerce%20landing%20page/blog/blog-1-img_3x.jpg" alt="image"> </div>
+					<div class="blog-2-image-holder"> <img src="https://images.unsplash.com/photo-1622123398971-218bce806b45?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=334&q=80" alt="image"> </div>
 					<div class="blog-2-content">
-						<h4>Lorem Ipsum</h4>
-						<h3>Lorem ipsum dolor sit amet.</h3>
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+						<h4>blog</h4>
+						<h3>description here.</h3>
+						
 						<p class="button">view post</p>
 					</div>
 				</div>
                 <div class="blog-2">
-					<div class="blog-2-image-holder"> <img src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412543/E-commerce%20landing%20page/blog/blog-1-img_3x.jpg" alt="image"> </div>
+					<div class="blog-2-image-holder"> <img src="https://images.unsplash.com/photo-1622123398971-218bce806b45?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=334&q=80" alt="image"> </div>
 					<div class="blog-2-content">
-						<h4>Lorem Ipsum</h4>
-						<h3>Lorem ipsum dolor sit amet.</h3>
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+						<h4></h4>
+						<h3>BLog</h3>
+						<p class="description">description here</p>
 						<p class="button">view post</p>
 					</div>
 				</div>

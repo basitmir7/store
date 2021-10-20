@@ -1,8 +1,12 @@
 <%- include("../partials/header") %>
 <style>
     body {
-    background: rgb(99, 39, 120)
+    background: rgb(250, 231, 249)
 }
+
+/* .container{
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+} */
 
 .form-control:focus {
     box-shadow: none;
@@ -44,12 +48,23 @@
     cursor: pointer;
     border: solid 1px #BA68C8
 }
+
+#left-con span{
+    display:flex;
+    /* width: 38%;
+    justify-content: space-between;
+    flex-wrap: wrap; */
+}
+#left-con span h3{
+    font-size: 19px;
+}
 </style>
-<div class="container rounded bg-white mt-5 mb-5">
+<div class="container rounded bg-white mt-5 mb-5" style="box-shadow:0 5px 11px rgb(0 0 0 / 8%), 0 5px 10px rgb(0 0 0 / 20%);">
     <div class="row">
         <div class="col-md-6 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="text-black-50"><%=user.email%></span>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5" id="left-con"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="text-black-50"><%=user.email%></span>
                 <span style="font-weight: 800;">
+                    <h3>Name:&nbsp;  </h3>
             <%if(user.name){ %>
                     <%=user.name%>
              <%   }else{ %>
@@ -59,6 +74,7 @@
                 </span>
                
                  <span>
+                    <h3>Contact:&nbsp;  </h3> 
                             <%if(user.contact){ %>
                                     <%=user.contact%>
                              <%   }else{ %>
@@ -67,6 +83,7 @@
                 
                                 </span>
                                 <span>
+                                    <h3>Deals In:&nbsp; </h3>
                                     <%if(user.deals){ %>
                                             <%=user.deals%>
                                      <%   }else{ %>
@@ -75,6 +92,7 @@
                         
                                         </span>
                                         <span>
+                                            <h3>Location:&nbsp;  </h3>
                                             <%if(user.address){ %>
                                                     <%=user.address%>
                                              <%   }else{ %>
@@ -83,6 +101,7 @@
                                 
                                                 </span>
                                                 <span>
+                                                    <h3>Role:&nbsp;  </h3>
                                                     <%if(user.status){ %>
                                                             <%=user.status%>
                                                      <%   }else{ %>
@@ -95,7 +114,7 @@
         <div class="col-md-6 border-right">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Profile Settings</h4>
+                    <h4 class="text-right"><i class="fas fa-user"></i> Profile Settings</h4>
                 </div>
              <form action="/profile" method="post">
                 <div class="row mt-2">

@@ -1,0 +1,81 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Store</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	
+</head>
+
+<body>
+	<header>
+		<nav id="nav">
+            
+			<div class="logo nav-common"><h1>KashmirFest</h1></div>
+			<ul class="nav-common">
+				<li><a href="/">home</a></li>
+				<li><a href="/allProducts">products</a></li>
+				<!-- <li><a href="#blog">blog</a></li>
+                <li><a href="#collections">collections</a></li> -->
+				<li><a href="#contact">contact</a></li>
+                
+
+				<% if(isAuthenticated){ %>
+					
+					<li><a href="/cart">cart</a></li>
+					<!-- <li><a href="/orders">orders</a></li> -->
+					<li><a href="/admin/addProducts">Addproduct</a></li>
+					<li><a href="/admin/products">Adminpro</a></li>
+					<li><a href="/profile">Profile</a></li>
+					<li><a href="/logout">LogOut</a></li>
+			    <%	}else{  %>
+					<li><a href="/login">Login</a></li>
+					<li><a href="/register">Singin</a></li>
+		     	<%} %>
+				
+                
+			</ul>
+			
+
+		</nav>
+		<div class="container" style="margin: auto; margin-top: 20px; width: 50%; text-align: center;">
+			<% if(msg && msg.length>0){ %>
+			 <div class="alert alert-success" role="alert">
+			   <%= msg %>
+			</div>
+			<% } %>
+				
+			 <% if(error && error.length>0){ %>
+			   <div class="alert alert-danger" role="alert">
+				 <%= error %>
+			  </div>
+			 <% } %>
+			
+			  
+			</div>
+<div class="container">
+<div class="row">
+   <% if(products.length>0){ %>
+    <%	products.forEach((product)=>{ %>
+        <div class="col col-lg-3" style="margin-left: 10px;">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="/uploads/<%=product.image%>" alt="Card image cap">
+                <div class="card-body">
+                   <h5 class="card-title"><%=product.title%></h5>
+                   <p class="card-text"><%=product.description%></p>
+                   <h3><%=product.price%>$</h3>
+                   <a href="/admin/editProduct/<%=product._id%>" class="btn btn-sm btn-warning">edit</a>
+                   <a href="/admin/deleteProduct/<%=product._id%>" class="btn btn-sm btn-danger">delete</a>
+                </div>
+            </div>
+        </div>
+        <%	}) %>
+ <%   }else{ %>
+        <h1>No products</h1>
+  <%  } %>
+    </div>
+</div>
+<%- include("../partials/footer") %>

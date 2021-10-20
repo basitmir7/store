@@ -1,0 +1,73 @@
+<%- include("../partials/header") %>
+ <style>
+     .cart__item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin: auto;
+  width: 40rem;
+  max-width: 90%;
+}
+
+.cart__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin-bottom: 1rem;
+}
+
+.cart__item h1,
+.cart__item h2 {
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+  
+ </style>
+ <div class="container" style="height: 50%;">
+<main>
+
+        <ul class="cart__item-list">
+            <% products.forEach(p => { %>
+                <li class="cart__item">
+                    <h1><%= p.productId.title %></h1>
+                    <h2>Quantity: <%= p.quantity %></h2>
+                   
+                </li>
+            <% }) %>
+        </ul>
+        <hr>
+        <div style="margin: auto;text-align: center;">
+            <h2>Total: <%=totalSum%></h2>
+        </div>
+            <div style="margin: auto;text-align: center;">
+                <button id="order-btn" class="btn">ORDER</button>
+                <script src="https://js.stripe.com/v3/"></script>
+                <script>
+                    // var stripe = Stripe('pk_test_Oa1aEfV1EFTGOLJHIkx6mFUs00AtOsluFy');
+                    var stripe = Stripe('pk_test_51Jf7QDSHAPHrUHE0lpJiAX3ALB6HIAm6gnjTydFrBjcZZ7UhiOgdT8TrWvmBoOooTrVfDoi2bzfV0PDPcp5Hxrn900L0hPcico');
+                    var orderBtn = document.getElementById('order-btn');
+                    orderBtn.addEventListener('click', function() {
+                        stripe.redirectToCheckout({
+                            sessionId: '<%= sessionId %>'
+                        });
+                    });
+                </script>
+            </div>
+        
+        <!-- <div class="centered">
+            <form action="/create-order" style="text-align: center; margin: 50px;" method="POST">
+                <button type="submit" class="btn btn-success">Order Now!</button>
+            </form>
+        </div> -->
+        
+</main>
+
+</div>
+
+
+
+<%- include("../partials/footer") %>

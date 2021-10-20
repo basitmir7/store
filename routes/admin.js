@@ -20,6 +20,8 @@ var Storage= multer.diskStorage({
     storage:Storage
   }).single('file');
 
+router.get('/admin/products',auth.authenticate,adminController.getProducts);
+
 router.get('/admin/addProducts',auth.authenticate,adminController.getAddProducts);
 
 router.post('/admin/addProducts',auth.authenticate,upload,adminController.postAddProducts);

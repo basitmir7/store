@@ -43,11 +43,13 @@
             <% }) %>
         </ul>
         <hr>
-        <div class="centered">
-            <form action="/create-order" style="text-align: center; margin: 50px;" method="POST">
+        <div class="centered" style="text-align: center;margin: auto;">
+            <!-- <form action="/create-order" style="text-align: center; margin: 50px;" method="POST">
                 <button type="submit" class="btn btn-success">Order Now!</button>
-            </form>
+            </form> -->
+            <a class="btn btn-success" href="/checkout">Order Now!</a>
         </div>
+        
         
     <% } else { %>
         <h1>No Products in Cart!</h1>

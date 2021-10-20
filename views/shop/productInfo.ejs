@@ -14,12 +14,10 @@
 	<header>
 		<nav id="nav">
             
-			<div class="logo nav-common"><h1>KASHMIRFRESH</h1></div>
+			<div class="logo nav-common"><h1>KashmirFest</h1></div>
 			<ul class="nav-common">
 				<li><a href="/">home</a></li>
 				<li><a href="/allProducts">products</a></li>
-				<li><a href="#blog">blog</a></li>
-                <li><a href="#collections">collections</a></li>
 				<li><a href="#contact">contact</a></li>
                 
 
@@ -28,6 +26,7 @@
 					<li><a href="/cart">cart</a></li>
 					<!-- <li><a href="/orders">orders</a></li> -->
 					<li><a href="/admin/addProducts">Addproduct</a></li>
+					<li><a href="/profile">Profile</a></li>
 					<li><a href="/logout">LogOut</a></li>
 			    <%	}else{  %>
 					<li><a href="/login">Login</a></li>
@@ -65,8 +64,7 @@
 				<input type="hidden" name="productId" value="<%=product._id%>">
               <button class="btn btn-success" type="submit">Add To Cart</button>
 		   </form>
-          <a href="/admin/editProduct/<%=product._id%>" class="btn btn-sm btn-warning">edit</a>
-          <a href="/admin/deleteProduct/<%=product._id%>" class="btn btn-sm btn-danger">delete</a>
+        
           <%}%>
         </div>
       </div>

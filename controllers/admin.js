@@ -11,7 +11,18 @@ exports.getEditProduct = (req, res, next)=>{
     res.render("admin/addProducts", {product:product})
   })
 }
-
+exports.getProducts = (req, res, next) => {
+  Product.find({userId:req.session.user._id})
+    // .select('title price -_id')
+    // .populate('userId', 'name')
+    .then(products => {
+      console.log(products);
+      res.render('admin/products', {
+        products: products,
+      });
+    })
+    .catch(err => console.log(err));
+};
 
 exports.postAddProducts =( req, res, next)=>{
     if(req.body.hid ===''){

@@ -18,6 +18,9 @@
     "express-session": "^1.17.2",
     "mongoose": "^5.13.2",
     "multer": "^1.4.3",
-    "nodemon": "^2.0.12"
+    "nodemailer": "^6.6.5",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "nodemon": "^2.0.12",
+    "stripe": "^8.178.0"
   }
 }

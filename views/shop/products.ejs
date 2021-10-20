@@ -10,6 +10,11 @@
                    <p class="card-text"><%=product.description%></p>
                    <h3><%=product.price%>$</h3>
                   <a href="/productDetail/<%=product._id%>" class="btn btn-primary">More Info!</a>
+                  <h6 style="margin-top: 10px;">
+                     <% if(product.userId.name){ %>
+                          <%=product.userId.name%>
+                    <%  }%>
+                  </h6>
                 </div>
             </div>
         </div>
